@@ -29,7 +29,7 @@ fi
 BUILDENV=`mktemp -d /tmp/mageteststand.XXXXXXXX`
 
 echo "Cloning ${MAGETESTSTAND_URL} to ${BUILDENV}"
-git clone "${MAGETESTSTAND_URL}" "${BUILDENV}"
+git clone --single-branch --branch dev --depth 1 "${MAGETESTSTAND_URL}" "${BUILDENV}"
 cp -rf "${WORKSPACE}" "${BUILDENV}/.modman/"
 ${BUILDENV}/install.sh
 if [ -d "${WORKSPACE}/vendor" ] ; then
