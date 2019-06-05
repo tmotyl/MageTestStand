@@ -31,6 +31,7 @@ BUILDENV=`mktemp -d /tmp/mageteststand.XXXXXXXX`
 echo "Cloning ${MAGETESTSTAND_URL} to ${BUILDENV}"
 git clone --single-branch --branch dev --depth 1 "${MAGETESTSTAND_URL}" "${BUILDENV}"
 cp -rf "${WORKSPACE}" "${BUILDENV}/.modman/"
+cp ${BUILDENV}/.n98-magerun.yaml ~/.n98-magerun.yaml
 ${BUILDENV}/install.sh
 if [ -d "${WORKSPACE}/vendor" ] ; then
   cp -rf ${WORKSPACE}/vendor/* "${BUILDENV}/vendor/"
